@@ -26,9 +26,9 @@ function makeCard(country) {
 function makeList(countries) {
     clearResult();
     const listMarkup = countries.reduce((acc, country) => {
-        return acc += `<li><span class="cards-title"><svg class="cards-icon" width="20" height="20">
+        return acc += `<li><svg class="cards-icon" width="20" height="20">
                 <image xlink:href="${country.flags.svg}" width="20" height="20"/>
-              </svg>${country.name.official}</span></li>`
+              </svg><span class="cards-title">${country.name.official}</span></li>`
     }, "");
     listRef.innerHTML = listMarkup;
 }
