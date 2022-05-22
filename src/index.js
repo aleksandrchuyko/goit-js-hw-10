@@ -5,7 +5,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import {fetchCountries} from "./js/fetchCountries.js";
 
-const DEBOUNCE_DELAY = 2000;
+const DEBOUNCE_DELAY = 300;
 
 const   inputRef = document.querySelector('#search-box'),
         listRef = document.querySelector('.country-list'),
@@ -13,13 +13,24 @@ const   inputRef = document.querySelector('#search-box'),
 
 function makeCard(country) {
     clearResult();
-    cardRef.innerHTML = `<svg class="card-icon" width="50" height="50">
-                <image xlink:href="${country[0].flags.svg}" width="50" height="50"/>
-              </svg>`;
+    cardRef.innerHTML = `<h2 class="card-title"><svg class="card-icon" width="30" height="30">
+                <image xlink:href="${country[0].flags.svg}" width="30" height="30"/>
+              </svg>${country[0].name.official}</h2>
+              <ul class="card-info">
+              <li><h4>Capital:</h4><span>${country[0].capital}</span></li>
+              <li><h4>Population:</h4><span>${country[0].population}</span></li>
+              <li><h4>Languages:</h4><span>${Object.values(country[0].languages).reduce((acc, language) => { return acc + (acc ? ", " + language : language); }, "")}</span></li>
+              </ul>`;
 }
 
 function makeList(countries) {
     clearResult();
+    const listMarkup = countries.reduce((acc, country) => {
+        return acc += `<li><span class="cards-title"><svg class="cards-icon" width="20" height="20">
+                <image xlink:href="${country.flags.svg}" width="20" height="20"/>
+              </svg>${country.name.official}</span></li>`
+    }, "");
+    listRef.innerHTML = listMarkup;
 }
 
 function clearResult() {
