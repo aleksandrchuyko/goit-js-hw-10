@@ -37,3 +37,27 @@ ul {
     padding-left: 10px;
 }
 
+.card-title {
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+}
+
+.card-icon {
+  margin-right: 10px;
+}
+
+.card-info li {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.card-info span {
+  margin-left: 10px;
+}
+
+.card-info h4 {
+  margin: 0;
+}
+
