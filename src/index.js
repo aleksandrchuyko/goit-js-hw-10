@@ -42,6 +42,7 @@ function clearResult() {
 
 inputRef.addEventListener('input', debounce((e) => {
     const partOfCountryName = (e.target.value).trim();
+    
     if (partOfCountryName) {
         fetchCountries(partOfCountryName)
         .then(countries => {
