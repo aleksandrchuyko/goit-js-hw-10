@@ -30,6 +30,7 @@ function makeList(countries) {
                 <image xlink:href="${country.flags.svg}" width="20" height="20"/>
               </svg><span class="cards-title">${country.name.official}</span></li>`
     }, "");
+    
     listRef.innerHTML = listMarkup;
 }
 
