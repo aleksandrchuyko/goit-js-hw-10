@@ -13,6 +13,7 @@ const   inputRef = document.querySelector('#search-box'),
 
 function makeCard(country) {
     clearResult();
+    
     cardRef.innerHTML = `<h2 class="card-title"><svg class="card-icon" width="30" height="30">
                 <image xlink:href="${country[0].flags.svg}" width="30" height="30"/>
               </svg>${country[0].name.official}</h2>
@@ -25,6 +26,7 @@ function makeCard(country) {
 
 function makeList(countries) {
     clearResult();
+
     const listMarkup = countries.reduce((acc, country) => {
         return acc += `<li><svg class="cards-icon" width="20" height="20">
                 <image xlink:href="${country.flags.svg}" width="20" height="20"/>
